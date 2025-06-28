@@ -1,0 +1,27 @@
+#User function Template for python3
+
+class Solution:
+    
+    #Function to return a list containing the union of the two arrays.
+    def findUnion(self,a,b):
+        i, j, r = 0, 0, []
+        while i < len(a) or j < len(b):
+            if i < len(a) and j < len(b):
+                if a[i] < b[j]:
+                    if not r or r[-1] != a[i]:
+                        r.append(a[i])
+                    i += 1
+                else:
+                    if not r or r[-1] != b[j]:
+                        r.append(b[j])
+                    j += 1
+            elif i < len(a):
+                if not r or r[-1] != a[i]:
+                    r.append(a[i])
+                i += 1
+            elif j < len(b):
+                if not r or r[-1] != b[j]:
+                    r.append(b[j])
+                j += 1
+        return r
+                    

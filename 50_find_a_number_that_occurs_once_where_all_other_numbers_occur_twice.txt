@@ -1,0 +1,6 @@
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        r = 0 #anything xor 0 is that number
+        for e in nums:
+            r ^= e
+        return r
