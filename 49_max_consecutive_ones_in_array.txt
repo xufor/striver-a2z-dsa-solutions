@@ -1,3 +1,5 @@
+https://leetcode.com/problems/max-consecutive-ones/description/
+
 class Solution:
     def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
         counter, max_value = 0, -10**9

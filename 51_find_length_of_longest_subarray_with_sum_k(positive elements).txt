@@ -1,0 +1,24 @@
+https://www.naukri.com/code360/problems/longest-subarray-with-sum-k_6682399
+
+def longestSubarrayWithSumK(a: [int], k: int) -> int:
+    csum,i,j,longest,n = a[0],0,0,0,len(a)
+    while i < n and j < n:
+        if csum < k:
+            j += 1
+            csum += a[j] if j < n else 0
+        elif csum > k:
+            if i == j:
+                i += 1
+                j += 1
+                csum = a[j] if j < n else 0
+            else:
+                csum -= a[i]
+                i += 1
+        else:
+ 
+            longest = max(j-i+1, longest)
+            j += 1
+            csum += a[j] if j < n else 0
+    return longest
+
+
