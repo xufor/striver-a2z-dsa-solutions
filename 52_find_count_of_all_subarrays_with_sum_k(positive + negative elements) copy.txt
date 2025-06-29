@@ -1,0 +1,16 @@
+https://leetcode.com/problems/subarray-sum-equals-k/
+
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
+        prefix_sum, csum, tsum = { 0: 1 }, 0, 0
+        for i in range(len(nums)):
+            csum += nums[i]
+            if prefix_sum.get(csum - k) != None:
+                tsum += prefix_sum.get(csum - k)
+            if prefix_sum.get(csum) == None:
+                prefix_sum[csum] = 1
+            else:
+                prefix_sum[csum] += 1
+        return tsum
+
+
