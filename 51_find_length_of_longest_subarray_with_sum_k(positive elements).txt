@@ -15,7 +15,6 @@ def longestSubarrayWithSumK(a: [int], k: int) -> int:
                 csum -= a[i]
                 i += 1
         else:
- 
             longest = max(j-i+1, longest)
             j += 1
             csum += a[j] if j < n else 0
