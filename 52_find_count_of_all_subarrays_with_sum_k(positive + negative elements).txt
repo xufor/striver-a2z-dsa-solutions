@@ -3,6 +3,8 @@ https://leetcode.com/problems/subarray-sum-equals-k/
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
         prefix_sum, csum, tsum = { 0: 1 }, 0, 0
+        # so the keys in prefix_sum dictionary are the prefix sums encountered till now in the array
+        # and the value is the counts of those encountered prefix sums
         for i in range(len(nums)):
             csum += nums[i]
             tsum += prefix_sum.get(csum - k, 0)
