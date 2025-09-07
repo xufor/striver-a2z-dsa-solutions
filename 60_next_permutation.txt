@@ -1,0 +1,24 @@
+https://leetcode.com/problems/next-permutation/description/
+
+def reverse(l, start, end):
+    while start < end:
+        l[start], l[end] = l[end], l[start]
+        start += 1
+        end -= 1
+
+class Solution:
+    def nextPermutation(self, nums: List[int]) -> None:
+        i = len(nums)-1
+        while i >= 1 and nums[i] <= nums[i-1]:
+            i -= 1
+        if i == 0:
+            nums.reverse()
+        else:
+            nextg = i
+            for j in range(i, len(nums)):
+                if nums[j] > nums[i-1]:
+                    nextg = j
+            nums[i-1],nums[nextg]=nums[nextg],nums[i-1]
+            reverse(nums, i, len(nums)-1)
+                              
+        
