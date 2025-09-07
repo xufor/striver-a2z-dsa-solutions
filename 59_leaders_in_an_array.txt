@@ -1,0 +1,14 @@
+https://www.geeksforgeeks.org/problems/leaders-in-an-array-1587115620/1
+
+from collections import deque
+
+class Solution:
+    def leaders(self, arr):
+        leaders = deque([arr[-1]])
+        largest_till_now = arr[-1]
+        for i in range(len(arr)-2, -1, -1):
+            if arr[i] >= largest_till_now:
+                leaders.appendleft(arr[i])
+                largest_till_now = arr[i]
+        return list(leaders)
+                
